@@ -16,9 +16,17 @@ public class HelloController {
   @GetMapping("/hello")
   public ResponseEntity<?> sayHello(@RequestParam String name) {
     System.out.println("doing something");
-    String responseString = "Hello " + name + ", How are you? ok then.";
+    String responseString = "Good evening " + name + ", How are you? ok then.";
     responseString += " " + phrase;
     return ResponseEntity.ok(responseString);
+  }
+
+  private int counter;
+
+  @GetMapping
+  public String demo() {
+    counter++;
+    return String.format("<h1>Response from hello controller: Response number: %d<h1/>", counter);
   }
 
 }

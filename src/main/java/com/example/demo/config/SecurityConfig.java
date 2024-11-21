@@ -48,7 +48,7 @@ public class SecurityConfig {
         }))
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(customizer -> customizer
-            .requestMatchers("/api/**").permitAll())
+            .requestMatchers("/api/**", "*").permitAll())
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
     return http.build();
